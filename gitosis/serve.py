@@ -120,6 +120,7 @@ def serve(
             path=path)
 
         if newpath is None:
+            log.error("Access denied for %s %s %s", user, path, cfg)
             raise ReadAccessDenied()
 
         if verb in COMMANDS_WRITE:
@@ -141,7 +142,7 @@ def serve(
         p = topdir
         for segment in repopath.split(os.sep)[:-1]:
             p = os.path.join(p, segment)
-            util.mkdir(p, 0750)
+            util.mkdir(p, 0755)
 
         repository.init(path=fullpath)
         gitweb.set_descriptions(

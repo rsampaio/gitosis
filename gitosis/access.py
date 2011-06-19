@@ -95,9 +95,10 @@ def haveAccess(config, user, mode, path):
                     prefix = 'repositories'
 
             log.debug(
-                'Using prefix %(prefix)r for %(path)r'
+                'Using prefix %(prefix)r for %(path)r %(sectname)r'
                 % dict(
                 prefix=prefix,
                 path=mapping,
+                sectname=sectname,
                 ))
             return (prefix, mapping)

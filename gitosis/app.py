@@ -4,6 +4,7 @@ import logging
 import optparse
 import errno
 import ConfigParser
+import redisconfig
 
 log = logging.getLogger('gitosis.app')
 
@@ -29,11 +30,6 @@ class App(object):
         parser = self.create_parser()
         (options, args) = parser.parse_args()
         cfg = self.create_config(options)
-        try:
-            self.read_config(options, cfg)
-        except CannotReadConfigError, e:
-            log.error(str(e))
-            sys.exit(1)
         self.setup_logging(cfg)
         self.handle_args(parser, cfg, options, args)
 
@@ -53,7 +49,7 @@ class App(object):
         return parser
 
     def create_config(self, options):
-        cfg = ConfigParser.RawConfigParser()
+        cfg = redisconfig.RedisConfigParser()
         return cfg
 
     def read_config(self, options, cfg):
@@ -67,16 +63,17 @@ class App(object):
             else:
                 raise CannotReadConfigError(str(e))
         try:
-            cfg.readfp(conffile)
+            cfg = redisconfig.RedisConfigParser()
         finally:
             conffile.close()
 
     def setup_logging(self, cfg):
         try:
-            loglevel = cfg.get('gitosis', 'loglevel')
+            # loglevel = cfg.get('gitosis', 'loglevel')
+            loglevel = "DEBUG"
         except (ConfigParser.NoSectionError,
                 ConfigParser.NoOptionError):
-            pass
+            loglevel = "DEBUG"
         else:
             try:
                 symbolic = logging._levelNames[loglevel]

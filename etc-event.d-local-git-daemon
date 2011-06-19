@@ -6,6 +6,6 @@ exec /usr/bin/git-daemon \
 	--user-path=public-git \
 	--verbose \
 	--reuseaddr \
-	--base-path=/srv/example.com/git/repositories/ \
-	/srv/example.com/git/repositories/
+	--base-path=/srv/gitosis/repositories/ \
+	/srv/gitosis/repositories/
 respawn

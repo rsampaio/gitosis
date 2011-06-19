@@ -42,7 +42,7 @@ def init(
         template = resource_filename('gitosis.templates', 'default')
 
 
-    util.mkdir(path, 0750)
+    util.mkdir(path, 0755)
     args = [
         _git,
         '--git-dir=.',
@@ -71,9 +71,10 @@ def init(
     if not os.path.exists(hooks_dir):
         raise
     for hook in hooks:
-        os.chmod(
-            os.path.join(hooks_dir, hook),
-            0755)
+        try:
+            os.chmod(os.path.join(hooks_dir, hook), 0755)
+        except Exception, e:
+            pass
 
 
 class GitFastImportError(GitError):

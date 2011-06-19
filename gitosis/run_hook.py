@@ -27,12 +27,6 @@ def post_update(cfg, git_dir):
         else:
             raise
     repository.export(git_dir=git_dir, path=export)
-    os.rename(
-        os.path.join(export, 'gitosis.conf'),
-        os.path.join(export, '..', 'gitosis.conf'),
-        )
-    # re-read config to get up-to-date settings
-    cfg.read(os.path.join(export, '..', 'gitosis.conf'))
     gitweb.set_descriptions(
         config=cfg,
         )

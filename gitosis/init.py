@@ -9,7 +9,9 @@ import sys
 
 from pkg_resources import resource_filename
 from cStringIO import StringIO
+
 from ConfigParser import RawConfigParser
+from gitosis.redisconfig import RedisConfigParser
 
 from gitosis import repository
 from gitosis import run_hook
@@ -45,7 +47,6 @@ def initial_commit(git_dir, cfg, pubkey, user):
         committer='Gitosis Admin <%s>' % user,
         files=[
             ('keydir/%s.pub' % user, pubkey),
-            ('gitosis.conf', cfg),
             ],
         )
 
@@ -77,23 +78,21 @@ def init_admin_repository(
     repository.init(
         path=git_dir,
         )
-    hook = os.path.join(git_dir, 'hooks', 'post-update')
-    os.chmod(hook, 0755)
+    # hook = os.path.join(git_dir, 'hooks', 'post-update')
+    # os.chmod(hook, 0755)
+    log.info("Git dir: %s", git_dir)
     if not repository.has_initial_commit(git_dir):
         log.info('Making initial commit...')
         # ConfigParser does not guarantee order, so jump through hoops
         # to make sure [gitosis] is first
-        cfg_file = StringIO()
-        print >>cfg_file, '[gitosis]'
-        print >>cfg_file
-        cfg = RawConfigParser()
+        cfg = RedisConfigParser()
+        cfg.add_section('gitosis')
         cfg.add_section('group gitosis-admin')
         cfg.set('group gitosis-admin', 'members', user)
         cfg.set('group gitosis-admin', 'writable', 'gitosis-admin')
-        cfg.write(cfg_file)
         initial_commit(
             git_dir=git_dir,
-            cfg=cfg_file.getvalue(),
+            cfg=cfg,
             pubkey=pubkey,
             user=user,
             )
@@ -127,6 +126,7 @@ class Main(app.App):
         log.info('Admin user is %r', user)
         log.info('Creating generated files directory...')
         generated = util.getGeneratedFilesDir(config=cfg)
+        log.info(generated)
         util.mkdir(generated)
         log.info('Creating repository structure...')
         repositories = util.getRepositoryDir(cfg)
@@ -140,6 +140,4 @@ class Main(app.App):
         log.info('Running post-update hook...')
         util.mkdir(os.path.expanduser('~/.ssh'), 0700)
         run_hook.post_update(cfg=cfg, git_dir=admin_repository)
-        log.info('Symlinking ~/.gitosis.conf to repository...')
-        symlink_config(git_dir=admin_repository)
         log.info('Done.')
