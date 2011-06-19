@@ -1,0 +1,12 @@
+Author: Daniel Baumann <daniel@debian.org>
+Description: Update hook for git >= 1.6 (Closes: #584900).
+
+diff -Naurp gitosis.orig/gitosis/templates/admin/hooks/post-update gitosis/gitosis/templates/admin/hooks/post-update
+--- gitosis.orig/gitosis/templates/admin/hooks/post-update	2010-04-14 18:58:44.000000000 +0200
++++ gitosis/gitosis/templates/admin/hooks/post-update	2010-06-08 06:18:00.000000000 +0200
+@@ -1,4 +1,4 @@
+ #!/bin/sh
+ set -e
+ gitosis-run-hook post-update
+-git-update-server-info
++git update-server-info

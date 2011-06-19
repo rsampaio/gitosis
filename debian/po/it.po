@@ -1,0 +1,120 @@
+# Italian translation of gitosis debconf templates.
+# Copyright (C) 2009-2010 Vincenzo Campanella <vinz65@gmail.com>
+# This file is distributed under the same license as the gitosis package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gitosis 20090917-9\n"
+"Report-Msgid-Bugs-To: gitosis@packages.debian.org\n"
+"POT-Creation-Date: 2010-04-07 09:02+0200\n"
+"PO-Revision-Date: 2010-09-18 16:41+0100\n"
+"Last-Translator: Vincenzo Campanella <vinz65@gmail.com>\n"
+"Language-Team: Italian <tp@lists.linux.it>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid "Dedicated system account for gitosis:"
+msgstr "Account di sistema dedicato per gitosis:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid ""
+"Repositories are managed by gitosis under a single system account, using SSH "
+"keys to identify users. This account name is part of the clone URL when "
+"checking out over SSH, leading to commands such as \"git clone "
+"gitosis@example.com:foo.git\"."
+msgstr ""
+"Gli archivi vengono gestiti da gitosis sotto un unico account di sistema, "
+"con uso di chiavi SSH per l'identificazione degli utenti. Il nome di questo "
+"account è parte dell'URL clonato durante il controllo via SSH, ciò che porta "
+"a comandi come, ad esempio, «git clone gitosis@esempio.it:foo.git»."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid ""
+"The account name can be customized but you should not use an existing "
+"account."
+msgstr ""
+"Il nome dell'account può essere personalizzato, ma non si dovrebbe "
+"utilizzare un account esistente."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid "Directory for git repositories:"
+msgstr "Directory per gli archivi git:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid ""
+"Please specify the directory where gitosis will manage the git repositories."
+msgstr "Specificare la directory in cui gitosis gestirà gli archivi git."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid ""
+"If you choose an already existing directory, this installation process will "
+"leave it unmodified."
+msgstr ""
+"Se si sceglie una directory già esistente, questo processo d'installazione "
+"la lascerà non modificata."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid "SSH public key for the gitosis admin repository:"
+msgstr "Chiave pubblica SSH per l'archivio di amministrazione di gitosis:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"Configuration for gitosis is stored in a file named \"gitosis.conf\" which "
+"is kept in the gitosis-admin repository."
+msgstr ""
+"La configurazione di gitosis viene memorizzata in un file denominato "
+"«gitosis.conf», il quale si trova nell'archivio gitosis-admin."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"Access to this repository is controlled through an SSH public key in the "
+"(default) user@host format."
+msgstr ""
+"L'accesso all'archivio è controllato da una chiave pubblica SSH nel formato "
+"(predefinito) utente@host."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"You can specify an existing key by entering the name of the key file or by "
+"pasting the key content itself here. Alternatively, you can leave that field "
+"empty and configure the key manually later after reading the /usr/share/doc/"
+"gitosis/README.Debian file."
+msgstr ""
+"È possibile specificare una chiave esistente inserendo il nome del file "
+"della chiave o incollando il contenuto stesso della chiave qui. In "
+"alternativa è anche possibile lasciare questo campo vuoto e configurare "
+"manualmente la chiave dopo aver letto il file «/usr/share/doc/gitosis/README."
+"Debian»."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"If there is already an initialized gitosis-admin repository in the gitosis "
+"directory, this installation process will not touch it."
+msgstr ""
+"Se esiste già un archivio gitosis-admin inizializzato nella directory di "
+"gitosis, questo processo di installazione non lo modificherà."

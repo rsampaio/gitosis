@@ -1,0 +1,118 @@
+# French translation of gitosis debconf templates.
+# Copyright (C) 2009 French L10N Team <debian-l10n-french@lists.debian.org>
+# This file is distributed under the same license as the gitosis package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.2+20080825-10\n"
+"Report-Msgid-Bugs-To: gitosis@packages.debian.org\n"
+"POT-Creation-Date: 2010-04-07 09:02+0200\n"
+"PO-Revision-Date: 2009-03-02 00:00+0200\n"
+"Last-Translator: Steve Petruzzello <dlist@bluewin.ch>\n"
+"Language-Team: French <debian-l10n-french@lists.debian.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid "Dedicated system account for gitosis:"
+msgstr "Compte système dédié pour gitosis :"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid ""
+"Repositories are managed by gitosis under a single system account, using SSH "
+"keys to identify users. This account name is part of the clone URL when "
+"checking out over SSH, leading to commands such as \"git clone "
+"gitosis@example.com:foo.git\"."
+msgstr ""
+"Les dépôts sont gérés par gitosis sous un seul compte système, en utilisant "
+"des clés SSH pour identifier les utilisateurs. L'identifiant de ce compte "
+"fait partie de l'URL SSH de clonage pour les exportations (« checkouts »), "
+"avec des commandes telles que « git clone gitosis@exemple.com:foo.git »."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid ""
+"The account name can be customized but you should not use an existing "
+"account."
+msgstr ""
+"Cet identifiant peut être personnalisé mais ne devrait pas déjà exister."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid "Directory for git repositories:"
+msgstr "Répertoire pour les dépôts git:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid ""
+"Please specify the directory where gitosis will manage the git repositories."
+msgstr "Veuillez indiquer le répertoire où gitosis gérera les dépôts git."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid ""
+"If you choose an already existing directory, this installation process will "
+"leave it unmodified."
+msgstr ""
+"Si vous choisissez un répertoire existant, le processus d'installation n'y "
+"changera rien."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid "SSH public key for the gitosis admin repository:"
+msgstr "Clé publique SSH pour le dépôt gitosis administrateur :"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"Configuration for gitosis is stored in a file named \"gitosis.conf\" which "
+"is kept in the gitosis-admin repository."
+msgstr ""
+"La configuration pour gitosis se trouve dans le fichier « gitosis.conf » qui "
+"se trouve dans le dépôt gitosis-admin."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"Access to this repository is controlled through an SSH public key in the "
+"(default) user@host format."
+msgstr ""
+"L'accès à ce dépôt est contrôlé par une clé publique SSH au format (par "
+"défaut) utilisateur@hôte."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"You can specify an existing key by entering the name of the key file or by "
+"pasting the key content itself here. Alternatively, you can leave that field "
+"empty and configure the key manually later after reading the /usr/share/doc/"
+"gitosis/README.Debian file."
+msgstr ""
+"Vous pouvez spécifier une clé existante en indiquant le nom du fichier de "
+"clé ou en collant le contenu de la clé ici. Vous pouvez également laisser ce "
+"champ vide et configurer la clé vous-même plus tard après avoir lu le "
+"fichier /usr/share/doc/gitosis/README.Debian."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"If there is already an initialized gitosis-admin repository in the gitosis "
+"directory, this installation process will not touch it."
+msgstr ""
+"S'il existe déjà un dépôt gitosis-admin initialisé dans le répertoire "
+"gitosis, le processus d'installation le laissera intact."

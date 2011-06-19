@@ -1,0 +1,119 @@
+# Bokmaal translation of gitosis debconf templates.
+# Copyright (C) 2009-2010 Martin Bagge <brother@bsnet.se>
+# This file is distributed under the same license as the gitosis package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gitosis\n"
+"Report-Msgid-Bugs-To: gitosis@packages.debian.org\n"
+"POT-Creation-Date: 2010-04-07 09:02+0200\n"
+"PO-Revision-Date: 2010-04-12 18:14+0100\n"
+"Last-Translator: Martin Bagge <brother@bsnet.se>\n"
+"Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: Sweden\n"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid "Dedicated system account for gitosis:"
+msgstr "Dedikerat systemkonto för gitosis:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid ""
+"Repositories are managed by gitosis under a single system account, using SSH "
+"keys to identify users. This account name is part of the clone URL when "
+"checking out over SSH, leading to commands such as \"git clone "
+"gitosis@example.com:foo.git\"."
+msgstr ""
+"Gitosis hanterar förråd med ett enda systemkonto genom att använda SSH-"
+"nycklar för att identifiera användare. Detta konto är en del av "
+"kloningsadresser som används för att hämta förrådet via SSH, kommandona "
+"kommer att se ut ungefär så här \"git clone gitosis@example.com:foo.get\"."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid ""
+"The account name can be customized but you should not use an existing "
+"account."
+msgstr "Kontonamnet kan bytas men du ska inte använda ett konto som existerar."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid "Directory for git repositories:"
+msgstr "Katalog för git-förråd:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid ""
+"Please specify the directory where gitosis will manage the git repositories."
+msgstr "Ange den katalog där gitosis ska hantera git-förråd."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid ""
+"If you choose an already existing directory, this installation process will "
+"leave it unmodified."
+msgstr ""
+"Om du viäljer en katalog som redan existerar kommer installationsprocessen "
+"inte att modifiera den."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid "SSH public key for the gitosis admin repository:"
+msgstr "Publik SSH-nyckel för gitoses administrations-förråd:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"Configuration for gitosis is stored in a file named \"gitosis.conf\" which "
+"is kept in the gitosis-admin repository."
+msgstr ""
+"Inställningarna för gitosis sparas i en fil med namnet \"gitosis.conf\" som "
+"sparas i förrådet gitosis-admin."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"Access to this repository is controlled through an SSH public key in the "
+"(default) user@host format."
+msgstr ""
+"Tillgång till detta förråd kontrolleras med en publik SSH-nyckel i "
+"standardformatet använder@värd."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"You can specify an existing key by entering the name of the key file or by "
+"pasting the key content itself here. Alternatively, you can leave that field "
+"empty and configure the key manually later after reading the /usr/share/doc/"
+"gitosis/README.Debian file."
+msgstr ""
+"Du kan använda en existerande nyckel genom att ange dess filnamn eller genom "
+"att ange innehållet i nyckelfilen här. Alternativt kan du lämna fältet tomt "
+"och göra inställningar för nyckeln manuellt senare efter att ha läst /usr/"
+"share/doc/gitosis/README.Debian"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"If there is already an initialized gitosis-admin repository in the gitosis "
+"directory, this installation process will not touch it."
+msgstr ""
+"Om det redan finns ett gitosis-admin-förråd i gitosis-katalogen kommer inte "
+"installationsprocessen att röra det."

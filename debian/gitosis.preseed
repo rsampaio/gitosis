@@ -1,0 +1,7 @@
+################################################################################
+## gitosis
+
+#gitosis gitosis/username string gitosis
+#gitosis gitosis/directory string /srv/gitosis
+#gitosis gitosis/key string
+################################################################################

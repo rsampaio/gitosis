@@ -1,0 +1,84 @@
+#!/bin/sh
+
+set -e
+
+# dh_pysupport includes needs to be early in postinst
+# in order to be able to initialize gitosis-admin repository.
+
+#DEBHELPER#
+
+. /usr/share/debconf/confmodule
+
+case "${1}" in
+	configure)
+		db_version 2.0
+
+		db_get gitosis/username
+		_USERNAME="${RET:-gitosis}"
+
+		db_get gitosis/directory
+		_DIRECTORY="${RET:-/srv/gitosis}"
+
+		db_get gitosis/key
+		_KEY="${RET}"
+
+		db_set gitosis/key ""
+
+		db_stop
+
+		if ! getent passwd | grep -q "^${_USERNAME}:"
+		then
+			adduser --quiet --system --home ${_DIRECTORY} --shell /bin/sh --disabled-password --no-create-home --gecos 'git repository hosting' --group ${_USERNAME}
+		elif ! getent group | grep -q "^${_USERNAME}:"
+		then
+			addgroup --system --quiet ${_USERNAME}
+			gpasswd -a ${_USERNAME} ${_USERNAME}
+		else
+			echo "gitosis user (${_USERNAME}) already exists, doing nothing."
+		fi
+
+		if [ ! -d "${_DIRECTORY}" ]
+		then
+			mkdir -p "${_DIRECTORY}"
+
+			ln -s "${_DIRECTORY}"/repositories "${_DIRECTORY}"/git
+
+			chown ${_USERNAME}:${_USERNAME} ${_DIRECTORY} -R
+
+			if [ -n "${_KEY}" ]
+			then
+				if [ -e "${_KEY}" ]
+				then
+					sudo -H -u ${_USERNAME} gitosis-init < ${_KEY}
+				else
+					TMPFILE="$(mktemp -t gitosis.XXXXXXXX)"
+
+					echo "${_KEY}" > ${TMPFILE}
+
+					sudo -H -u ${_USERNAME} gitosis-init < ${TMPFILE}
+
+					rm -f ${TMPFILE}
+				fi
+			fi
+		else
+			echo
+			echo "gitosis directory (${_DIRECTORY}) already exists, doing nothing."
+			echo "Make sure the directory is recursively owned by the correct user account (${_USERNAME})."
+		fi
+
+		echo
+		echo "Please read /usr/share/doc/gitosis/README.Debian"
+		echo "for information about how to use gitosis."
+		;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+
+		;;
+
+	*)
+		echo "postinst called with unknown argument \`${1}'" >&2
+		exit 1
+		;;
+esac
+
+exit 0

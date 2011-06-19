@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -e
+
+case "${1}" in
+	remove)
+		_USERNAME="gitosis"
+		_DIRECTORY="/srv/gitosis"
+
+		if [ -x /usr/sbin/deluser ]
+		then
+			deluser --system ${_USERNAME}
+		fi
+
+		if [ -d "${_DIRECTORY}" ]
+		then
+			rmdir --ignore-fail-on-non-empty "${_DIRECTORY}" || true
+		fi
+		;;
+
+	purge|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+
+		;;
+
+	*)
+		echo "postrm called with unknown argument \`${1}'" >&2
+		exit 1
+		;;
+esac
+
+#DEBHELPER#
+
+exit 0

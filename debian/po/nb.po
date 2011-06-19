@@ -1,0 +1,120 @@
+# Bokmaal translation of gitosis debconf templates.
+# Copyright (C) 2009 Bjørn Steensrud <bsteensr@skogkatt.homelinux.org>
+# This file is distributed under the same license as the gitosis package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: templates_[g28532]\n"
+"Report-Msgid-Bugs-To: gitosis@packages.debian.org\n"
+"POT-Creation-Date: 2010-04-07 09:02+0200\n"
+"PO-Revision-Date: 2009-03-02 18:33+0100\n"
+"Last-Translator: Bjørn Steensrud <bsteensr@skogkatt.homelinux.org>\n"
+"Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid "Dedicated system account for gitosis:"
+msgstr "Egen systemkonto for gitosis:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid ""
+"Repositories are managed by gitosis under a single system account, using SSH "
+"keys to identify users. This account name is part of the clone URL when "
+"checking out over SSH, leading to commands such as \"git clone "
+"gitosis@example.com:foo.git\"."
+msgstr ""
+"Lagre styres av gitosis under én enkelt systemkonto, og bruker SSH til å "
+"identifisere brukere. Dette kontonavnet er en del av klone-URLen når en "
+"sjekker ut over SSH, noe som fører til kommandoer som «git clone "
+"gitosis@example.com:foo.git»."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid ""
+"The account name can be customized but you should not use an existing "
+"account."
+msgstr ""
+"Kontonavnet kan tilpasses, men du bør ikke bruke en konto som finnes fra før."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid "Directory for git repositories:"
+msgstr "Mappe for git-lagre:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid ""
+"Please specify the directory where gitosis will manage the git repositories."
+msgstr "Oppgi mappa der gitosis skal håndtere git-lagrene."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid ""
+"If you choose an already existing directory, this installation process will "
+"leave it unmodified."
+msgstr ""
+"Hvis du velger en mappe som finnes fra før vil denne installasjonsprosessen "
+"la den være urørt."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid "SSH public key for the gitosis admin repository:"
+msgstr "Offentlig SSH-nøkkel for gitosis admin-lager:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"Configuration for gitosis is stored in a file named \"gitosis.conf\" which "
+"is kept in the gitosis-admin repository."
+msgstr ""
+"Oppsettet for gitosis lagres i en fil som heter «gitosis.conf», som bor i "
+"gitosis-admin-lageret."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+#, fuzzy
+#| msgid "Access to this repository is controlled through an SSH public key."
+msgid ""
+"Access to this repository is controlled through an SSH public key in the "
+"(default) user@host format."
+msgstr "Tilgang til dette lageret styres via en offentlig SSH-nøkkel."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"You can specify an existing key by entering the name of the key file or by "
+"pasting the key content itself here. Alternatively, you can leave that field "
+"empty and configure the key manually later after reading the /usr/share/doc/"
+"gitosis/README.Debian file."
+msgstr ""
+"Du kan oppgi en nøkkel som finnes ved å oppgi navnet på nøkkelfila, eller "
+"lime inn innholdet av selve nøkkelen her. Eller du kan la feltet være tomt "
+"og sette opp nøkkelen manuelt senere etter at du har lest fila /usr/share/"
+"doc/gitosis/README.Debian."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"If there is already an initialized gitosis-admin repository in the gitosis "
+"directory, this installation process will not touch it."
+msgstr ""
+"Hvis det allerede finnes et gitosis-admin-lager i gitosis-mappa, så vil "
+"denne installasjonsprosessen ikke røre det."

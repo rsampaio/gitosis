@@ -1,0 +1,39 @@
+Template: gitosis/username
+Type: string
+Default: gitosis
+_Description: Dedicated system account for gitosis:
+ Repositories are managed by gitosis under a single system account, using
+ SSH keys to identify users. This account name is part of the clone URL
+ when checking out over SSH, leading to commands such as "git clone
+ gitosis@example.com:foo.git".
+ .
+ The account name can be customized but you should not use an existing
+ account.
+
+Template: gitosis/directory
+Type: string
+Default: /srv/gitosis
+_Description: Directory for git repositories:
+ Please specify the directory where gitosis will manage the git
+ repositories.
+ .
+ If you choose an already existing directory, this installation process
+ will leave it unmodified.
+
+Template: gitosis/key
+Type: string
+Default:
+_Description: SSH public key for the gitosis admin repository:
+ Configuration for gitosis is stored in a file named "gitosis.conf" which
+ is kept in the gitosis-admin repository.
+ .
+ Access to this repository is controlled through an SSH public key in the
+ (default) user@host format.
+ .
+ You can specify an existing key by entering the name of the key file or by
+ pasting the key content itself here. Alternatively, you can leave that
+ field empty and configure the key manually later after reading the
+ /usr/share/doc/gitosis/README.Debian file.
+ .
+ If there is already an initialized gitosis-admin repository in the gitosis
+ directory, this installation process will not touch it.

@@ -1,0 +1,116 @@
+# Czech translation of gitosis debconf templates.
+# Copyright (C) 2009 Debian Czech l10n team <debian-l10n-czech@lists.debian.org>
+# This file is distributed under the same license as the gitosis package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gitosis 0.2+20090917-7\n"
+"Report-Msgid-Bugs-To: gitosis@packages.debian.org\n"
+"POT-Creation-Date: 2010-04-07 09:02+0200\n"
+"PO-Revision-Date: 2010-08-01 16:31+0200\n"
+"Last-Translator: Michal Simunek <michal.simunek@gmail.com>\n"
+"Language-Team: Czech <debian-l10n-czech@lists.debian.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid "Dedicated system account for gitosis:"
+msgstr "Systémový účet pro gitosis:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid ""
+"Repositories are managed by gitosis under a single system account, using SSH "
+"keys to identify users. This account name is part of the clone URL when "
+"checking out over SSH, leading to commands such as \"git clone "
+"gitosis@example.com:foo.git\"."
+msgstr ""
+"Repozitáře jsou spravovány programem gitosis pod jedním systémovým účtem a "
+"ten používá k ověření uživatelů SSH klíče. Tento název účtu je částí clone "
+"URL při SSH ověření a vede k příkazům jako jsou „git clone gitosis@example."
+"com:foo.git“."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:1001
+msgid ""
+"The account name can be customized but you should not use an existing "
+"account."
+msgstr ""
+"Název účtu může být přizpůsoben, ale nemělo by se jednat o existující účet."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid "Directory for git repositories:"
+msgstr "Adresář pro repozitáře gitu:"
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid ""
+"Please specify the directory where gitosis will manage the git repositories."
+msgstr "Zadejte prosím adresář, kde bude gitosis spravovat repozitáře gitu."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:2001
+msgid ""
+"If you choose an already existing directory, this installation process will "
+"leave it unmodified."
+msgstr ""
+"Vyberete-li existující adresář, instalační proces jej nechá nepozměněný."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid "SSH public key for the gitosis admin repository:"
+msgstr "Veřejný klíč SSH pro administrační repozitář gitosis."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"Configuration for gitosis is stored in a file named \"gitosis.conf\" which "
+"is kept in the gitosis-admin repository."
+msgstr ""
+"Nastavení pro gitosis je uloženo v souboru „gitosis.conf“, který je uchován "
+"v repozitáři gitosis-admin."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"Access to this repository is controlled through an SSH public key in the "
+"(default) user@host format."
+msgstr ""
+"Přístup do tohoto repozitáře je kontrolován veřejným SSH klíčem ve "
+"(výchozím) formátu uživatel@počítač."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"You can specify an existing key by entering the name of the key file or by "
+"pasting the key content itself here. Alternatively, you can leave that field "
+"empty and configure the key manually later after reading the /usr/share/doc/"
+"gitosis/README.Debian file."
+msgstr ""
+"Zde můžete zadat existující klíč vložením názvu souboru, nebo vložením "
+"samotného klíče. Případně můžete nechat pole prázdné a klíč nastavit později "
+"ručně po té, co si přečtete soubor /usr/share/doc/gitosis/README.Debian."
+
+#. Type: string
+#. Description
+#: ../gitosis.templates:3001
+msgid ""
+"If there is already an initialized gitosis-admin repository in the gitosis "
+"directory, this installation process will not touch it."
+msgstr ""
+"Jestliže již v adresáři gitosis existuje inicializovaný repozitář gitosis-"
+"admin, instalační proces jej nezmění."

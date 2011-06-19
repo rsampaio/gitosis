@@ -1,23 +1,372 @@
-gitosis (0.2) unstable; urgency=low
+gitosis (0.3) unstable; urgency=medium
 
-  * Fix initial push syntax in README. Needs to say "refs/heads/".
-  * Clean up more files in debian/rules.
-  * Mark the generated egg as non-zip-safe.
-  * Ensure "git init" doesn't write to stdout, and confuse a push.
-    The repository autocreation functionality ends up sending the
-    stdout to the client side, and there a very confused git push
-    can't make any sense of the protocol.
-  * Adjust README to make adduser create the home directory.
-  * Avoid missing configuration file trouble on initial run
-    of gitosis-init (and hence, gitosis-run-hook).
-  * Allow using email address in SSH public key user fields.
-  * Make sure ~git/.ssh exists in gitosis-init.
+  * Making greps for gitosis username and group in postinst more robust.
 
- -- Tommi Virtanen <tv@debian.org>  Mon,  3 Sep 2007 23:28:23 -0700
+ -- Daniel Baumann <daniel@debian.org>  Mon, 06 Dec 2010 13:19:27 +0100
 
-gitosis (0.1) unstable; urgency=low
+gitosis (0.2+20090917-10) unstable; urgency=low
 
-  * Initial Release.
+  * Adding updated debconf translations from Vincenzo Campanella
+    <vinz65@gmail.com> (Closes: #597309).
 
- -- Tommi Virtanen <tv@debian.org>  Mon,  4 Jun 2007 12:49:11 +0300
+ -- Daniel Baumann <daniel@debian.org>  Sun, 19 Sep 2010 12:51:07 +0200
 
+gitosis (0.2+20090917-9) unstable; urgency=low
+
+  * Adding some improvements to the German debconf translations, thanks
+    to Martin Eberhard Schauer <Martin.E.Schauer@gmx.de> (Closes:
+    #593569).
+  * Updating debconf po files.
+
+ -- Daniel Baumann <daniel@debian.org>  Wed, 01 Sep 2010 10:34:57 +0200
+
+gitosis (0.2+20090917-8) unstable; urgency=low
+
+  * Adding patch to update hook for git >= 1.6 (Closes: #584900).
+  * Updating standards version to 3.9.0.
+  * Updating Czech debconf translations from Michal Simunek
+    <michal.simunek@gmail.com> (Closes: #591263).
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 05 Aug 2010 16:15:34 +0200
+
+gitosis (0.2+20090917-7) unstable; urgency=low
+
+  * Adding patch to update hook for git >= 1.6 (Closes: #584900).
+
+ -- Daniel Baumann <daniel@debian.org>  Tue, 08 Jun 2010 06:20:44 +0200
+
+gitosis (0.2+20090917-6) unstable; urgency=low
+
+  * Adding updated Japanese debconf translations from Hideki Yamane
+    <henrich@debian.or.jp> (Closes: #582720).
+
+ -- Daniel Baumann <daniel@debian.org>  Tue, 01 Jun 2010 07:36:05 +0200
+
+gitosis (0.2+20090917-5) unstable; urgency=low
+
+  * Adding updated Spanish debconf translations from Francisco Javier
+    Cuadrado <fcocuadrado@gmail.com> (Closes: #578474).
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 13 May 2010 19:02:18 +0200
+
+gitosis (0.2+20090917-4) unstable; urgency=low
+
+  * Adding updated French debconf translations from Christian Perrier
+    <bubulle@debian.org> (Closes: #577051).
+  * Adding updated Portuguese debconf translations from Americo Monteiro
+    <a_monteiro@netcabo.pt> (Closes: #577177).
+  * Adding updated Russian debconf translations from Yuri Kozlov
+    <yuray@komyakino.ru> (Closes: #577161).
+  * Adding updated Swedish debconf translations from Martin Bagge
+    <brother@bsnet.se> (Closes: #577557).
+
+ -- Daniel Baumann <daniel@debian.org>  Mon, 19 Apr 2010 06:57:42 +0200
+
+gitosis (0.2+20090917-3) unstable; urgency=low
+
+  * Adding explicit debian source version 1.0 until switch to 3.0.
+  * Updating year in copyright file.
+  * Updating to standards 3.8.4.
+  * Updating python build-depends.
+  * Corrected wrapping of package long-description.
+  * Improving short-description of gitosis/directory deconf question.
+  * Not marking gitosis/key debconf defaults as translatable.
+  * Mentioning that the ssh public key needs to be in the default
+    user@host format (Closes: #574068).
+  * Updating README.source.
+  * Bumping versioned depends on debhelper.
+  * Sorting dh call in rules to more common order.
+  * Making depends on git-core unversioned, since it's fulfiled in
+    stable already.
+  * Creating group for gitosis user in case the specified user exists,
+    but not in its group.
+  * Not failing if removal of server directory in postinst isn't
+    successful.
+
+ -- Daniel Baumann <daniel@debian.org>  Wed, 07 Apr 2010 09:11:47 +0200
+
+gitosis (0.2+20090917-2) unstable; urgency=low
+
+  * Correcting wrong vcs-browser field.
+  * Don't hardcode username in postinst (Closes: #551721).
+  * Adding patch to create directories and repositories by default with
+    0755 instead of 0750 (Closes: #544246).
+  * Replacing some Germanisms from the German debconf translations.
+  * Setting last-translator for German debconf templates to me, no
+    intention do deal with debian-l10n-german in the future anymore.
+
+ -- Daniel Baumann <daniel@debian.org>  Tue, 10 Nov 2009 21:24:19 +0100
+
+gitosis (0.2+20090917-1) unstable; urgency=low
+
+  * Updating maintainer field.
+  * Updating vcs fields.
+  * Adding Russian debconf translations from Yuri Kozlov
+    <yuray@komyakino.ru> (Closes: #545216).
+  * Merging upstream version 0.2+20090917.
+  * Not calling debconf-updatepo in clean target of rules anymore.
+  * Bumping versioned build-depends on quilt.
+  * Adding maintainer homepage to copyright.
+  * Updating year in copyright.
+  * Adding README.source.
+
+ -- Daniel Baumann <daniel@debian.org>  Sun, 04 Oct 2009 11:43:35 +0200
+
+gitosis (0.2+20080825-16) unstable; urgency=low
+
+  * Removing not possible debconf handling in postrm.
+  * Updating package to standards version 3.8.3.
+  * Adding patch to adjust examples to Debian commodities (Closes:
+    #542685).
+  * Running adduser with quiet (Closes: #543713).
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 27 Aug 2009 13:03:58 +0200
+
+gitosis (0.2+20080825-15) unstable; urgency=low
+
+  * Using correct rfc-2822 date formats in changelog.
+  * Adding Czech debconf translations from Tomas fidler
+    <tomas.fidler@tiscali.cz> (Closes: #535907).
+  * Improving English in messages outputted in postinst script, thanks
+    to Mark Brown <broonie@debian.org>.
+  * Updating package to standards version 3.8.2.
+  * Wrapping depends.
+  * Wrapping build-depends.
+  * Minimizing rules file.
+
+ -- Daniel Baumann <daniel@debian.org>  Wed, 05 Aug 2009 10:41:12 +0200
+
+gitosis (0.2+20080825-14) unstable; urgency=low
+
+  * Not passing --install-lib to setup.py call in rules anymore
+    (Closes: #525566).
+
+ -- Daniel Baumann <daniel@debian.org>  Sat, 25 Apr 2009 16:38:00 +0200
+
+gitosis (0.2+20080825-13) unstable; urgency=low
+
+  * Correcting spelling mistake in README.Debian.
+  * Updating section field.
+  * Using 'repository' untranslated in the German debconf translations
+    (Closes: #520033).
+  * Adding updated Japanese debconf translations from Hideki Yamane
+    <henrich@debian.or.jp> (Closes: #521379).
+  * Adding updated Portuguese debconf translations from Miguel Figueiredo
+    <elmig@debianpt.org> (Closes: #520738).
+  * Adding updated Spanish debconf translations from Francisco Javier Cuadrado
+    <fcocuadrado@gmail.com> (Closes: #520931).
+  * Marking untranslatable strings as such (Closes: #517164).
+
+ -- Daniel Baumann <daniel@debian.org>  Sun, 05 Apr 2009 12:25:00 +0200
+
+gitosis (0.2+20080825-12) unstable; urgency=low
+
+  * Adding French debconf translations from the French L10N Team
+    <debian-l10n-french@lists.debian.org> (Closes: #518917).
+  * Adding Italian debconf translations from Vincenzo Campanella
+    <vinz65@gmail.com> (Closes: #519059).
+  * Adding updated Portuguese debconf translations from Americo Monteiro
+    <a_monteiro@netcabo.pt> (Closes: #519197).
+  * Adding Spanish debconf translations from Francisco Javier Cuadrado
+    <fcocuadrado@gmail.com> (Closes: #519516).
+  * Adding Japanese debconf translations from Hideki Yamane
+    <henrich@debian.or.jp> (Closes: #519889).
+  * Using consistent copyright notice in debconf translation files.
+  * Updating standards to 3.8.1.
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 19 Mar 2009 06:43:00 +0100
+
+gitosis (0.2+20080825-11) unstable; urgency=low
+
+  * Simplyfing defaults handling of debconf variables in postinst script.
+  * Applying patch from debian-l10n-english to improve debconf templates and
+    package description (Closes: #517164, 517110).
+  * Adding Bokmaal debconf translation from Bjorn Steensrud
+    <bsteensr@skogkatt.homelinux.org> (Closes: #517879).
+  * Adding Swedish debconf translation from Martin Bagge <brother@bsnet.se>
+    (Closes: #518326).
+  * Adding German debconf translation from Kai Wasserbaech
+    <debian@carbon-project.org> (Closes: #518374).
+  * Improving overly complicated German debconf translation.
+
+ -- Daniel Baumann <daniel@debian.org>  Sun, 08 Mar 2009 10:01:16 +0100
+
+gitosis (0.2+20080825-10) unstable; urgency=low
+
+  * Apparently, python-pkg-resources is not enough, so depending again
+    on python-setuptools.
+  * Removing double entry in docs file.
+
+ -- Daniel Baumann <daniel@debian.org>  Sun, 22 Feb 2009 10:11:00 +0100
+
+gitosis (0.2+20080825-9) unstable; urgency=low
+
+  * Adding manual depends to python-pkg-resources.
+
+ -- Daniel Baumann <daniel@debian.org>  Sat, 21 Feb 2009 18:09:00 +0100
+
+gitosis (0.2+20080825-8) unstable; urgency=low
+
+  * Adding Portuguese debconf translations from Americo Monteiro
+    <a_monteiro@netcabo.pt> (Closes: #513983).
+  * Letting gitosis be managed by python-support entirely and not
+    installing it as egg anymore (Closes: #508469, #516245).
+  * Relaxing check on keyfile supplied by debconf to existence rather
+    than regular file.
+
+ -- Daniel Baumann <daniel@debian.org>  Sat, 21 Feb 2009 12:04:00 +0100
+
+gitosis (0.2+20080825-7) unstable; urgency=low
+
+  * Only trying to initializing gitosis-admin repository through
+    postinst if the gitosis directory was created through postinst.
+    Otherwise we might have a permission problem, so it's not safe to
+    initialize gitosis-admin.
+
+ -- Daniel Baumann <daniel@debian.org>  Sun, 01 Feb 2009 00:35:00 +0100
+
+gitosis (0.2+20080825-6) unstable; urgency=low
+
+  * Also allowing a regular (but absolute) filename to be entered for
+    the ssh key debconf question.
+
+ -- Daniel Baumann <daniel@debian.org>  Sat, 31 Jan 2009 21:33:00 +0100
+
+gitosis (0.2+20080825-5) unstable; urgency=low
+
+  * Forgot to update the gitosis.preseed example file. :)
+
+ -- Daniel Baumann <daniel@debian.org>  Sat, 31 Jan 2009 14:01:00 +0100
+
+gitosis (0.2+20080825-4) unstable; urgency=low
+
+  * Adding debconf question to ask for an SSH public key so that the
+    gitosis-admin repository can be initialized non-interactively.
+  * Improving postrm by getting username and directory from debconf, if
+    available, and also remove the gitosis directory if it is empty.
+
+ -- Daniel Baumann <daniel@debian.org>  Sat, 31 Jan 2009 13:53:00 +0100
+
+gitosis (0.2+20080825-3) unstable; urgency=low
+
+  * Replacing obsolete dh_clean -k with dh_prep.
+  * Prefixing debhelper files with package name.
+  * Using quilt rather than dpatch.
+  * Updating year in copyright file.
+  * Using debconf to make gitosis username and directory configurable.
+  * Adding note about README.Debian in postinst.
+
+ -- Daniel Baumann <daniel@debian.org>  Sat, 31 Jan 2009 00:30:00 +0100
+
+gitosis (0.2+20080825-2) unstable; urgency=medium
+
+  [ Daniel Baumann ]
+  * Updating vcs fields in control file.
+  * Adjusting hash in README.Debian to reflect that you don't need to be root to
+    do the initial sudo call in order to initialize the gitosis-admin
+    repository. However, you need to have sudo access to execute commands on
+    behalf of the gitosis system user (which practically implies root privileges
+    anyway).
+  * Adding upstream location to copyright file.
+  * Using patch-stamp rather than patch in rules file.
+
+  [ Thomas Viehmann ]
+  * Remove easy-install.pth, setuptools.pth in debian/rules install and leave
+    that to packages providing the modules (Closes: #498209).
+  * Remove generated stuff in debian/rules clean.
+
+ -- Daniel Baumann <daniel@debian.org>  Sat, 20 Sep 2008 06:50:00 +0200
+
+gitosis (0.2+20080825-1) unstable; urgency=medium
+
+  * Merging upstream version 0.2+20080825.
+  * Adding suggests to git-daemon-run.
+  * Adding suggests to gitweb.
+  * Removing warnings about previous gitosis directory move, not required
+    anymore and just annoying.
+  * Issueing a note in postrm if the gitosis directory is already existing at
+    package installation time.
+  * Removing unused dh_install call in rules file.
+
+ -- Daniel Baumann <daniel@debian.org>  Mon, 01 Sep 2008 23:39:00 +0200
+
+gitosis (0.2+20080626-2) unstable; urgency=medium
+
+  * Moving gitosis home directory from /var/cache/gitosis to /srv/gitosis
+    (Closes: #488600).
+  * Conditionally setting owner of /var/cache/gitosis (Closes: #491501).
+
+ -- Daniel Baumann <daniel@debian.org>  Wed, 16 Jul 2008 08:49:00 +0200
+
+gitosis (0.2+20080626-1) unstable; urgency=medium
+
+  * Adding patch to adjust README to Debian commodities (Closes: #490230).
+  * Merging upstream version 0.2+20080626.
+  * Updating to standards 3.8.0.
+
+ -- Daniel Baumann <daniel@debian.org>  Wed, 16 Jul 2008 08:49:00 +0200
+
+gitosis (0.2+20080419-2) unstable; urgency=medium
+
+  * Ensuring that post-update is executable (Closes: #473613, #483602).
+  * Correcting clean target in rules file to build twice in a row.
+  * Manually enforce python-setuptools (>= 0.6c5) in depends.
+  * Updating to debhelper 7.
+  * Correcting indenting in copyright file.
+
+ -- Daniel Baumann <daniel@debian.org>  Fri, 30 May 2008 16:56:00 +0200
+
+gitosis (0.2+20080419-1) unstable; urgency=medium
+
+  * Improving wording of the 0.2+20080319-2 entry in changelog file.
+  * Adding README.Debian file.
+  * Reordering rules file.
+  * Rewriting copyright file in machine-interpretable format.
+  * Adding vcs fields in control file.
+  * Updating package to debhelper 6.
+  * Merging upstream version 0.2+20080419.
+
+ -- Daniel Baumann <daniel@debian.org>  Wed, 23 Apr 2008 01:02:00 +0200
+
+gitosis (0.2+20080319-3) unstable; urgency=medium
+
+  * Adjusting installation hack to python 2.5 (Closes: #477002).
+
+ -- Daniel Baumann <daniel@debian.org>  Sun, 20 Apr 2008 17:59:00 +0200
+
+gitosis (0.2+20080319-2) unstable; urgency=high
+
+  * Up to now, gitosis was using /var/cache/git to store its repositories. The
+    reason for this was that by using the same directory as git-daemon itself,
+    there was no need to adjust the configuration of git-daemon to make the
+    git repositories available (read-only) through the git protocol publically.
+    By moving them to /var/cache/gitosis, you need to reconfigure your
+    git-daemon to export also repositories in this directory, otherwise the
+    repositories are not accessible for anyone except those which are configured
+    in gitosis-admin (Closes: #472343, #473574).
+  * Using versioned depends against git-core for etch-backports compatibility
+    (Closes: #473908).
+  * Re-adding python-setuptools to depends (Closes: #473022).
+
+ -- Daniel Baumann <daniel@debian.org>  Mon, 07 Apr 2008 22:16:00 +0200
+
+gitosis (0.2+20080319-1) unstable; urgency=medium
+
+  * New upstream snapshot.
+  * Removed cruft from python-setuptools in /usr/bin (Closes: #470218).
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 20 Mar 2008 14:15:00 +0100
+
+gitosis (0.2+20080219-1) unstable; urgency=low
+
+  * New upstream snapshot.
+  * Replacing depends to python-setuptools with python-pkg-resources
+    (Closes: #468731).
+
+ -- Daniel Baumann <daniel@debian.org>  Fri, 07 Mar 2008 14:55:00 +0100
+
+gitosis (0.2+20080118-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Daniel Baumann <daniel@debian.org>  Fri, 18 Jan 2008 11:13:00 +0100
